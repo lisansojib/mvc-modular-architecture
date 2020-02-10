@@ -8,4 +8,8 @@
 <h1>My Simple Page with MVC Module</h1>
 @ViewBag.Message
 
-@Html.Require("~/bundles/simplehome")
+
+@section scripts {
+    @*@Html.Require("~/bundles/simplehome")*@
+    <script src="~/Scripts/simple-home.js"></script>
+}

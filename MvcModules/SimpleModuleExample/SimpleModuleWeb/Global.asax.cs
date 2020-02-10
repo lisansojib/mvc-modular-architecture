@@ -9,7 +9,7 @@ namespace SimpleModuleWeb
         protected void Application_Start()
         {
             MvcModules.MvcModules.Start();
-            AreaRegistration.RegisterAllAreas();
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }

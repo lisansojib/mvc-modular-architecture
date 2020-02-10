@@ -77,7 +77,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\SimpleHome\Index.cshtml" />
-    <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\simple-home.js" />
