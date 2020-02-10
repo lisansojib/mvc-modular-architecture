@@ -1,3 +1,3 @@
 ﻿$(function () {
-    console.log("Hello");
+    $.get("/simplemodule/api/values").done(function (data) { console.log(data) });
 })
