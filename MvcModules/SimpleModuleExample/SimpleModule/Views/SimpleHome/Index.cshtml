@@ -6,10 +6,9 @@
 
 
 <h1>My Simple Page with MVC Module</h1>
-@ViewBag.Message
+<p class="text-danger"></p>
 
 
 @section scripts {
-    @*@Html.Require("~/bundles/simplehome")*@
-    <script src="~/Scripts/simple-home.js"></script>
+    <script>@Html.RawResource(typeof(SimpleModule.MvcModule), "SimpleModule.Scripts.simple-home.js")</script>
 }

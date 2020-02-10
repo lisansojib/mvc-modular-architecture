@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,7 +20,7 @@ namespace MvcModules
         public static IHtmlString Require(this HtmlHelper htmlHelper, string template)
         {
             htmlHelper.ViewContext.HttpContext.Items["_script_" + Guid.NewGuid()] = template;
-
+            htmlHelper.RenderReqiredScripts();
             return new HtmlString(string.Empty);
         }
 
@@ -42,6 +43,16 @@ namespace MvcModules
                 }
             }
             return MvcHtmlString.Empty;
+        }
+
+        public static IHtmlString RawResource(this HtmlHelper html, Type type, string resourceName)
+        {
+            using (var s = type.Assembly.GetManifestResourceStream(resourceName) ?? new MemoryStream())
+            using (var r = new StreamReader(s))
+            {
+                s.Position = 0;
+                return new HtmlString(r.ReadToEnd());
+            }
         }
     }
 }
